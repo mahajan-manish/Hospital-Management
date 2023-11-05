@@ -15,8 +15,11 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
+	
 	private String addressCity;
+	
 	private String addressState;
+	
 	@Column(unique = true)
 	private int addressPincode;
 	

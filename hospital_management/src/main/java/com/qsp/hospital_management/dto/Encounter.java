@@ -18,10 +18,14 @@ public class Encounter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int encounterId;
+	
 	private String encounterCause;
+	
 	private double encounterCost;
+	
 	@ManyToOne
 	private Person person;
+	
 	@OneToMany
 	private List<Branch> branch;
 }

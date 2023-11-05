@@ -16,11 +16,14 @@ public class Branch {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int branchId;
+	
 	private String branchName;
+	
 	private String branchManager;
 	
 	@ManyToOne
 	private Hospital hospital;
+	
 	@OneToOne
 	private Address address;
 }

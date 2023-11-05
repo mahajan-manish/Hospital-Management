@@ -54,7 +54,7 @@ public class AddressService {
 			return new ResponseEntity<ResponseStructure<Address>>(responseStructure, HttpStatus.FOUND);
 		}
 
-		throw new AddressIdNotFound();
+		throw new AddressIdNotFound("address with given id not found");
 	}
 
 	public ResponseEntity<ResponseStructure<Address>> findAddressByPincode(int addressPincode) {

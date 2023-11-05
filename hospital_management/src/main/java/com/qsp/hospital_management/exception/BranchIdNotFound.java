@@ -1,6 +1,6 @@
 package com.qsp.hospital_management.exception;
 
-public class AddressIdNotFound extends RuntimeException {
+public class BranchIdNotFound extends RuntimeException {
 
 	private String message;
 
@@ -8,9 +8,9 @@ public class AddressIdNotFound extends RuntimeException {
 		return message;
 	}
 
-	public AddressIdNotFound(String message) {
+	public BranchIdNotFound(String message) {
 		super();
 		this.message = message;
 	}
-
+	
 }

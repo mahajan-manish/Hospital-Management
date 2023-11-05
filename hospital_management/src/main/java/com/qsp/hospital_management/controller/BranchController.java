@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,9 +45,9 @@ public class BranchController {
 		return branchService.findBranchByHospitalId(hospitalId);
 	}
 
-	@PutMapping("/{branchId}")
-	public ResponseEntity<ResponseStructure<Branch>> updateBranch(@PathVariable int branchId,
-			@RequestParam int hospitalId, @RequestParam int addressId, @RequestBody Branch branch) {
+	@PutMapping
+	public ResponseEntity<ResponseStructure<Branch>> updateBranch(@RequestParam int branchId, @RequestParam int hospitalId, @RequestParam int addressId,
+			@RequestBody Branch branch) {
 		return branchService.updateBranch(branchId, hospitalId, addressId, branch);
 	}
 

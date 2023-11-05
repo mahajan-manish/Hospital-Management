@@ -15,7 +15,9 @@ public class MedOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int medOrderId;
+	
 	private String medOrderDate;
+	
 	private String medOrderDoctor;
 	
 	@ManyToOne

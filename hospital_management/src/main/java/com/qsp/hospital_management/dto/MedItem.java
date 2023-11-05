@@ -15,8 +15,11 @@ public class MedItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int medItemId;
+	
 	private String medItemName;
+	
 	private double medItemPrice;
+	
 	@ManyToOne
 	private MedOrder medOrder;
 }

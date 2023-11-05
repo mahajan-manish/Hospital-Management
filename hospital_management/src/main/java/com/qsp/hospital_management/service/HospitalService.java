@@ -56,7 +56,7 @@ public class HospitalService {
 			return new ResponseEntity<ResponseStructure<Hospital>>(responseStructure, HttpStatus.FOUND);
 		}
 
-		throw new HospitalIdNotFound("Hopital with given Id does not Exist");
+		throw new HospitalIdNotFound("hospital with given id not found");
 
 	}
 
