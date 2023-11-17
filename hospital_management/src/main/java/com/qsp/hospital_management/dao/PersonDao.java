@@ -34,7 +34,23 @@ public class PersonDao {
 	}
 
 	public Person findPerson(int personId) {
-		// TODO Auto-generated method stub
+		Optional<Person> optional = personRepository.findById(personId);
+		if (optional.isPresent()) {
+			return optional.get();
+		}
+		return null;
+	}
+
+	public Person findPersonByPhone(long personPhone) {
+		return personRepository.findPersonByPersonPhone(personPhone);
+	}
+
+	public Person updatePerson(int personId, Person person) {
+		Optional<Person> optional = personRepository.findById(personId);
+		if (optional.isPresent()) {
+			person.setPersonId(personId);
+			return personRepository.save(person);
+		}
 		return null;
 	}
 

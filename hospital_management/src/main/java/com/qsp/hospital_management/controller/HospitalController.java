@@ -18,6 +18,10 @@ import com.qsp.hospital_management.dto.Hospital;
 import com.qsp.hospital_management.service.HospitalService;
 import com.qsp.hospital_management.util.ResponseStructure;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/hospital")
 public class HospitalController {
@@ -25,6 +29,8 @@ public class HospitalController {
 	@Autowired
 	private HospitalService hospitalService;
 
+	@ApiOperation(notes="This API is used to save the hospital details into the database", value="Save Hospital")
+	@ApiResponses(value = {@ApiResponse(code = 201,message = "data saved successfully")})
 	@PostMapping
 	public ResponseEntity<ResponseStructure<Hospital>> saveHospital(@RequestBody Hospital hospital) {
 		return hospitalService.saveHospital(hospital);

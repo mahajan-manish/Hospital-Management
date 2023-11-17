@@ -53,13 +53,25 @@ public class PersonService {
 	}
 	
 	public ResponseEntity<ResponseStructure<Person>> findPersonByPhone(long personPhone) {
-		// TODO Auto-generated method stub
-		return null;
+		Person person = personDao.findPersonByPhone(personPhone);
+		if (person!=null) {
+			responseStructure.setMessage("Person Found!");
+			responseStructure.setStatus(HttpStatus.FOUND.value());
+			responseStructure.setData(person);
+			return new ResponseEntity<ResponseStructure<Person>>(responseStructure, HttpStatus.FOUND);	
+		}
+		throw new PersonIdNotFound("Person with give Phone Number not found!");
 	}
 
 	public ResponseEntity<ResponseStructure<Person>> updatePerson(int personId, Person person) {
-		// TODO Auto-generated method stub
-		return null;
+		Person persondb = personDao.updatePerson(personId, person);
+		if(persondb!=null) {
+			responseStructure.setMessage("Person updated successfully!");
+			responseStructure.setStatus(HttpStatus.OK.value());
+			responseStructure.setData(persondb);
+			return new ResponseEntity<ResponseStructure<Person>>(responseStructure, HttpStatus.OK);
+		}
+		throw new PersonIdNotFound("Person with given id not found!");
 	}
 
 	public ResponseEntity<ResponseStructure<Person>> deletePerson(int personId) {
